@@ -19,7 +19,7 @@ app.use(cors());
 
 app.use('/public', express.static(`${process.cwd()}/public`));
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.sendFile(process.cwd() + '/views/index.html');
 });
 
@@ -38,14 +38,6 @@ app.post('/api/shorturl', (req, res) => {
         .catch((error) => { console.log(error) })
     }
   });
-
-  // ShortUrl.find()
-  // .then((data)=>{
-  //     new ShortUrl({ original_url:req.body.url,short_url:data.length+1}).save()
-  //       .then(res.json({ original_url:req.body.url,short_url:data.length+1}))
-  //       .catch((error)=>{console.log(error)})
-  // })
-  // .catch((error)=>{console.log(error)})
 });
 
 app.get('/api/shorturl/:num', (req, res) => {
@@ -56,6 +48,6 @@ app.get('/api/shorturl/:num', (req, res) => {
     .catch((error) => { console.log(error) })
 })
 
-app.listen(port, function() {
+app.listen(port, function () {
   console.log(`Listening on port ${port}`);
 });
